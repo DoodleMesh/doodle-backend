@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "./config";
 import { middleware } from "./middleware";
 const {CreateRoomSchema, SigninSchema, CreateUserSchema} = require("./type");
-// const { prismaClient } = require("@repo/db/client")
 import cors from "cors";
 const { PrismaClient } = require("@prisma/client")
 const prismaClient = new PrismaClient();
