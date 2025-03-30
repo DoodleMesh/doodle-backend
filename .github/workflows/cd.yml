@@ -18,4 +18,4 @@ jobs:
     - name: Delete Old docker container
       run: sudo docker rm -f draw-backend-container || true
     - name: Run Docker Container
-      run: sudo docker run -d -p 3000:3000 --name draw-backend-container kush233/draw-backend
+      run: sudo docker run -d -p 3000:3002 --name draw-backend-container kush233/draw-backend
