@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-app.post("/signup", async (req, res) => {
+app.post("/api/signup", async (req, res) => {
     const parsedData = CreateUserSchema.safeParse(req.body);
     if (!parsedData.success) {
         console.log(parsedData.error);
@@ -44,7 +44,7 @@ app.post("/signup", async (req, res) => {
     }
 })
 
-app.post("/signin", async (req, res) => {
+app.post("/api/signin", async (req, res) => {
     console.log("Hello")
     console.log(req.body)
     const parsedData = SigninSchema.safeParse(req.body);
@@ -74,7 +74,7 @@ app.post("/signin", async (req, res) => {
 
 })
 
-app.post("/room", middleware, async (req, res) => {
+app.post("/api//room", middleware, async (req, res) => {
     const parsedData = CreateRoomSchema.safeParse(req.body);
     console.log("creating room");
     console.log(parsedData);
@@ -105,7 +105,7 @@ app.post("/room", middleware, async (req, res) => {
     }
 })
 
-app.get("/chats/:roomId", async (req,res) => {
+app.get("/api/chats/:roomId", async (req,res) => {
     const roomId = Number(req.params.roomId);
     console.log(roomId);
     const messages = await prismaClient.chat.findMany({
@@ -123,14 +123,14 @@ app.get("/chats/:roomId", async (req,res) => {
     })
 });
 
-app.get("/allrooms", middleware, async(req,res) => {
+app.get("/api/allrooms", middleware, async(req,res) => {
     const rooms = await prismaClient.room.findMany();
     res.json({
         rooms
     })
 })
 
-app.get("/room/:slug", async (req, res) => {
+app.get("/api/room/:slug", async (req, res) => {
     const slug = req.params.slug;
     const room = await prismaClient.room.findFirst({
         where: {
