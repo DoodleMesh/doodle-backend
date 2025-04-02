@@ -20,6 +20,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build the Docker image
-      run: docker build -t kush233/draw-backend .
+      run: docker build -t kush233/draw-backend-2 .
     - name: Push to dockerhub
-      run: docker push kush233/draw-backend:latest
+      run: docker push kush233/draw-backend-2:latest
