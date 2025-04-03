@@ -74,7 +74,7 @@ app.post("/api/signin", async (req, res) => {
 
 })
 
-app.post("/api//room", middleware, async (req, res) => {
+app.post("/api/room", middleware, async (req, res) => {
     const parsedData = CreateRoomSchema.safeParse(req.body);
     console.log("creating room");
     console.log(parsedData);

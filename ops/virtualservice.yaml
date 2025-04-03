@@ -15,4 +15,4 @@ spec:
         - destination:
             host: backend
             port:
-              number: 3002
+              number: 80
