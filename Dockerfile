@@ -2,16 +2,16 @@ FROM node:21.7.3
 
 WORKDIR /app
 
-RUN corepack enable pnpm
+COPY package*.json .
 
-COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm
 
 RUN pnpm install
 
 COPY . .
 
-RUN pnpm prisma generate
-
 EXPOSE 3002
 
-CMD ["pnpm", "run", "dev"]
+RUN pnpm prisma generate
+
+CMD ["pnpm","run","dev"]
