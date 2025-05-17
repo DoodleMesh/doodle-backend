@@ -32,7 +32,7 @@ jobs:
         PAT: ${{ secrets.PAT }}
       run: | 
         git clone https://github.com/DoodleMesh/argo-backend
-        cd argo-frontend
+        cd argo-backend
 
         sed -i 's|image: kush233/draw-backend:.*|image: kush233/draw-backend:${{ github.sha }}|' deployment.yaml
 
