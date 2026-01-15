@@ -62,12 +62,18 @@ app.post("/api/signin", async (req, res) => {
             password: req.body.password
         }
     })
-    const token = jwt.sign({
-        userId: user?.id
+    if (!user) {
+        return res.status(401).json({
+        message: "Invalid credentials"
+    });
+    }
+   const token = jwt.sign({
+        userId: user.id
     }, JWT_SECRET);
     res.json({
         token
     })
+
 }catch(e){
     console.log(e);
 }
